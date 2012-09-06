@@ -7,42 +7,73 @@ License:     LGPL-2.1 with OCaml linking exception
 Plugins:     META (0.3), StdFiles (0.3), DevFiles (0.3)
 XStdFilesAUTHORS: false
 XStdFilesREADME: false
+BuildTools:   ocamlbuild
 FilesAB:     src/config.ml.ab
+
+Flag all
+  Description: Enable all optional features
+  Default: false
 
 Flag freetype
   Description: Enable Freetype support
-  Default: false
+  Default$: flag(all) || false
 
 Flag gif
   Description: Enable GIF support
-  Default: false
+  Default$: flag(all) || false
 
 Flag graphics
   Description: Enable Graphics module support
-  Default: false
+  Default$: flag(all) || false
 
 Flag jpeg
   Description: Enable JPEG support
-  Default: false
+  Default$: flag(all) || false
+
+Flag gtk
+  Description: Enable lablgtk2 support
+  Default$: flag(all) || false
 
 Flag png
   Description: Enable PNG support
-  Default: false
+  Default$: flag(all) || false
 
 Flag tiff
   Description: Enable TIFF support
-  Default: false
+  Default$: flag(all) || false
 
 Flag xpm
   Description: Enable XPM support
-  Default: false
+  Default$: flag(all) || false
+
+Library imagelib_graphics
+  Build:        false
+  if flag(graphics)
+    Build: true
+  Path:         src/
+  Pack:         true
+  BuildDepends: graphics, imagelib
+  Modules:      Graphic_image,
+                OGraphic
+  FindlibParent: imagelib
+
+Library imagelib_lablgtk
+  Build:        false
+  if flag(gtk)
+    Build: true
+  Path:         src/
+  Pack:         true
+  BuildDepends: lablgtk2, imagelib
+  Modules:      Imagegdk,
+                OXimage2,
+                OXimage,
+                Ximage2,
+                Ximage
+  FindlibParent: imagelib
 
 Library imagelib
   Path:         src/
-  BuildTools:   ocamlbuild
   Pack:         true
-  BuildDepends: graphics,
-                lablgtk2
   Modules:      Bitmap,
                 Blend,
                 Bmp,
@@ -56,8 +87,6 @@ Library imagelib
                 Genimage,
                 Geometry,
                 Gif,
-                Graphic_image,
-                Imagegdk,
                 Images,
                 Index16,
                 Index8,
@@ -69,15 +98,12 @@ Library imagelib
                 OColor,
                 OFreetype,
                 OGif,
-                OGraphic,
                 OImages,
                 OJpeg,
                 OPng,
                 OPpm,
                 OPs,
                 OTiff,
-                OXimage2,
-                OXimage,
                 OXpm,
                 OXvthumb,
                 Png,
@@ -90,21 +116,31 @@ Library imagelib
                 Tiff,
                 Tmpfile,
                 Units,
-                Ximage2,
-                Ximage,
                 Xpm,
                 Xvthumb
   CSources:     oversized.h,
-                ftintf.c,
-                gifread.c,
-                gifwrite.c,
-                jpegread.c,
-                jpegwrite.c,
-                pngread.c,
-                pngwrite.c,
-                tiffread.c,
-                tiffwrite.c,
-                xpmread.c,
-                xpmwrite.c
-  CCLib:        -lpng -lgif -ljpeg -ltiff -lfreetype -lXpm
+                ft_stubs.c,
+                gif_stubs.c,
+                jpeg_stubs.c,
+                png_stubs.c,
+                tiff_stubs.c,
+                xpm_stubs.c
+  if flag(freetype)
+    CCOpt+:     -DIMAGELIB_FREETYPE
+    CCLib+:     -lfreetype
+  if flag(gif)
+    CCOpt+:     -DIMAGELIB_GIF
+    CCLib+:     -lgif
+  if flag(jpeg)
+    CCOpt+:     -DIMAGELIB_JPEG
+    CCLib+:     -ljpeg
+  if flag(png)
+    CCOpt+:     -DIMAGELIB_PNG
+    CCLib+:     -lpng
+  if flag(tiff)
+    CCOpt+:     -DIMAGELIB_TIFF
+    CCLib+:     -ltiff
+  if flag(xpm)
+    CCOpt+:     -DIMAGELIB_XPM
+    CCLib+:     -lXpm
 

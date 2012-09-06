@@ -38,6 +38,7 @@
  * and a compression quality factor are passed in.
  */
 
+#if 0
 extern char jpg_error_message[JMSG_LENGTH_MAX];
 struct my_error_mgr {
   struct jpeg_error_mgr pub;	/* "public" fields */
@@ -46,6 +47,7 @@ struct my_error_mgr {
 };
 typedef struct my_error_mgr * my_error_ptr;
 extern void my_error_exit (j_common_ptr);
+#endif
 
 GLOBAL(value)
 write_JPEG_file (value file,
