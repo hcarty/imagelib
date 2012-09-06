@@ -76,6 +76,8 @@ let load name opts =
 	    let b = x land 7 in
 	    if Char.code buf.[c] land Array.unsafe_get bits b <> 0 then
 	      Index8.unsafe_set img x y 1
+            else
+              Index8.unsafe_set img x y 0
 	  done
     | _ -> assert false in
 
