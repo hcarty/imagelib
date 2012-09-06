@@ -193,12 +193,12 @@ module Make(B:Bitdepth) = struct
       | x :: xs ->
         swap_out x;
         swapper xs
-          (i - (x.block_size + Camlimages.word_size - 1) /
-               Camlimages.word_size) in
+          (i - (x.block_size + Config.word_size - 1) /
+               Config.word_size) in
     swapper sorted words;;
 
   let require bytes =
-    let words = (bytes + Camlimages.word_size - 1) / Camlimages.word_size in
+    let words = (bytes + Config.word_size - 1) / Config.word_size in
     let stat = Gc.stat () in
     let over = stat.Gc.live_words + words - !maximum_live in
     if over > 0 then swap_out_eldest over;;
@@ -258,8 +258,8 @@ module Make(B:Bitdepth) = struct
       let rec get_block_size p =
 	(* CR jfuruse: check overflow *)
         let whole_words =
-          (bytes_per_pixel * width * height + Camlimages.word_size - 1) /
-          Camlimages.word_size in
+          (bytes_per_pixel * width * height + Config.word_size - 1) /
+          Config.word_size in
         let pp = p * p in
         if whole_words / pp > !maximum_block_size
         then get_block_size (p + 1)

@@ -222,7 +222,7 @@ let color_name_table = ref None;;
 
 (* CR jfuruse: path_rgb_txt may not exist *)
 let color_table_load () =
-  let ic = open_in Camlimages.path_rgb_txt in
+  let ic = open_in Config.path_rgb_txt in
   let table = Hashtbl.create 107 in
   try
     while true do
