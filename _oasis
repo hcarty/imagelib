@@ -53,7 +53,7 @@ Library imagelib_graphics
   Path:         src/
   Pack:         true
   BuildDepends: graphics, imagelib
-  Modules:      Graphic_image,
+  Modules:      Graphic,
                 OGraphic
   FindlibParent: imagelib
 
