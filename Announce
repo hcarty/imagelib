@@ -1,0 +1,28 @@
+Version 2.12 of the CamlImages library, by Jun Furuse, François
+Pessaux, and Pierre Weis, is now available.
+
+CamlImages is an image processing library, which provides to the
+objective Caml programmer:
+
+  ** basic functions for image processing and loading/saving various image
+  file formats (hence providing a translation facility from format to format),
+
+  ** an interface with the Caml graphics library allows to display
+  images in the Graphics module screen and to mix them with Caml
+  drawings,
+
+  ** a freetype interface, integrated into the library:
+  you can draw texts into images using any truetype fonts,
+
+  ** a set of example programs, including gif animation, slide show, postscript
+  converter to print images.
+
+Version 2.12 adds support for lablgtk2 and is also a bug fix release.
+
+Sources and documentation are available from: 
+
+http://pauillac.inria.fr/camlimages/eng.htm
+
+ftp://ftp.inria.fr/INRIA/caml-light/bazar-ocaml/camlimages-2.12.tgz
+
+Contributions and comments are welcome.

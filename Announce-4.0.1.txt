@@ -1,0 +1,37 @@
+Hi,
+
+I'm glad to announce the availability of the 4.0.1 version of the
+CamlImages library, by Jun Furuse, François Pessaux, and Pierre Weis.
+
+This is a bug fix release.
+
+The software home page is:
+
+http://cristal.inria.fr/camlimages/eng.htm
+
+Sources and documentation are available from:
+
+http://cristal.inria.fr/camlimages/camlimages-3.0.2.tgz
+ftp://ftp.inria.fr/INRIA/Projects/cristal/caml-light/bazar-ocaml/camlimages-3.0.2.tgz
+
+Contributions and comments are welcome.
+
+Pierre Weis & June Furuse
+
+CamlImages is an image processing library, which provides to the
+objective Caml programmer a lot of image processing functionality.
+
+CamlImages provides to the objective Caml programmer:
+
+  ** basic functions for image processing and loading/saving various image
+  file formats (hence providing a translation facility from format to format),
+
+  ** an interface with the Caml graphics library allows to display
+  images in the Graphics module screen and to mix them with Caml
+  drawings,
+
+  ** a freetype interface, integrated into the library:
+  you can draw texts into images using any truetype fonts,
+
+  ** a set of example programs, including gif animation, slide show,
+  and a postscript converter to print images.

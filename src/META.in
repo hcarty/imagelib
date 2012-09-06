@@ -1,0 +1,69 @@
+name = "CamlImages"
+version = "@PACKAGE_VERSION@"
+description = "Objective Caml image processing library"
+
+archive(byte) = "camlimages.cma"
+archive(native) = "camlimages.cmxa"
+
+package "core" (
+  archive(byte) = "camlimages_core.cma"
+  archive(native) = "camlimages_core.cmxa"
+)
+
+package "gif" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_gif.cma"
+  archive(native) = "camlimages_gif.cmxa"
+)
+
+package "jpeg" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_jpeg.cma"
+  archive(native) = "camlimages_jpeg.cmxa"
+)
+
+package "png" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_png.cma"
+  archive(native) = "camlimages_png.cmxa"
+)
+
+package "tiff" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_tiff.cma"
+  archive(native) = "camlimages_tiff.cmxa"
+)
+
+package "freetype" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_freetype.cma"
+  archive(native) = "camlimages_freetype.cmxa"
+)
+
+package "xpm" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_xpm.cma"
+  archive(native) = "camlimages_xpm.cmxa"
+)
+
+package "ps" (
+  requires = "camlimages.core"
+  archive(byte) = "camlimages_ps.cma"
+  archive(native) = "camlimages_ps.cmxa"
+)
+
+package "graphics" (
+  requires = "camlimages.core, graphics"
+  archive(byte) = "camlimages_graphics.cma"
+  archive(native) = "camlimages_graphics.cmxa"
+)
+
+package "lablgtk2" (
+  requires = "camlimages.core, lablgtk2"
+  archive(byte) = "camlimages_lablgtk2.cma"
+  archive(native) = "camlimages_lablgtk2.cmxa"
+)
+
+package "all_formats" (
+  requires = "camlimages.gif, camlimages.jpeg, camlimages.png, camlimages.tiff, camlimages.xpm, camlimages.ps"
+)
