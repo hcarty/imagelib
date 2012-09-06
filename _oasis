@@ -1,77 +1,107 @@
 OASISFormat: 0.3
-Name:        camlimages
-Version:     4.0.2
-Synopsis:    Image processing library
-Authors:     Jun Furuse et al.
+Name:        imagelib
+Version:     0.1
+Synopsis:    Image processing library, fork of camlimages
+Authors:     Jun Furuse, et al.
 License:     LGPL-2.1 with OCaml linking exception
 Plugins:     META (0.3), StdFiles (0.3), DevFiles (0.3)
 
-Library camlimages
-  Path:       src/
-  BuildTools: ocamlbuild
-  Pack:       true
-  Modules:    Bitmap,
-              Blend,
-              Bmp,
-              Config,
-              Cmyk32,
-              Colorhist,
-              Color,
-#Freetype,
-#Ftlow,
-#Fttext,
-              Genimage,
-              Geometry,
-              Gif,
-              Graphic_image,
-#Imagegdk,
-              Images,
-              Index16,
-              Index8,
-              Jis_table,
-              Jis_unicode,
-              Jpeg,
-              Mstring,
-              OBmp,
-              OColor,
-#OFreetype,
-              OGif,
-              OGraphic,
-              OImages,
-              OJpeg,
-              OPng,
-              OPpm,
-              OPs,
-              OTiff,
-#OXimage2,
-#OXimage,
-#OXpm,
-              OXvthumb,
-              Png,
-              Ppm,
-              Ps,
-              Reduce,
-              Region,
-              Rgb24,
-              Rgba32,
-              Tiff,
-              Tmpfile,
-              Units,
-#Ximage2,
-#Ximage,
-#Xpm,
-              Xvthumb
-  CSources: oversized.h,
-#ftinf.c,
-            gifread.c,
-            gifwrite.c,
-            jpegread.c,
-            jpegwrite.c,
-            pngread.c,
-            pngwrite.c,
-            tiffread.c,
-            tiffwrite.c
-#xpmread.c,
-#xpmwrite.c
-  CCLib:    -lpng -lgif -ljpeg -ltiff
-  
+Flag freetype
+  Description: Enable Freetype support
+  Default: false
+
+Flag gif
+  Description: Enable GIF support
+  Default: false
+
+Flag graphics
+  Description: Enable Graphics module support
+  Default: false
+
+Flag jpeg
+  Description: Enable JPEG support
+  Default: false
+
+Flag png
+  Description: Enable PNG support
+  Default: false
+
+Flag tiff
+  Description: Enable TIFF support
+  Default: false
+
+Flag xpm
+  Description: Enable XPM support
+  Default: false
+
+Library imagelib
+  Path:         src/
+  BuildTools:   ocamlbuild
+  Pack:         true
+  BuildDepends: graphics,
+                lablgtk2
+  Modules:      Bitmap,
+                Blend,
+                Bmp,
+                Config,
+                Cmyk32,
+                Colorhist,
+                Color,
+                Freetype,
+                Ftlow,
+                Fttext,
+                Genimage,
+                Geometry,
+                Gif,
+                Graphic_image,
+                Imagegdk,
+                Images,
+                Index16,
+                Index8,
+                Jis_table,
+                Jis_unicode,
+                Jpeg,
+                Mstring,
+                OBmp,
+                OColor,
+                OFreetype,
+                OGif,
+                OGraphic,
+                OImages,
+                OJpeg,
+                OPng,
+                OPpm,
+                OPs,
+                OTiff,
+                OXimage2,
+                OXimage,
+                OXpm,
+                OXvthumb,
+                Png,
+                Ppm,
+                Ps,
+                Reduce,
+                Region,
+                Rgb24,
+                Rgba32,
+                Tiff,
+                Tmpfile,
+                Units,
+                Ximage2,
+                Ximage,
+                Xpm,
+                Xvthumb
+  CSources:     oversized.h,
+                ftintf.c,
+                gifread.c,
+                gifwrite.c,
+                jpegread.c,
+                jpegwrite.c,
+                pngread.c,
+                pngwrite.c,
+                tiffread.c,
+                tiffwrite.c,
+                xpmread.c,
+                xpmwrite.c
+  CCLib:        -lpng -lgif -ljpeg -ltiff -lfreetype -lXpm
+
