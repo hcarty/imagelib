@@ -1,0 +1,77 @@
+OASISFormat: 0.3
+Name:        camlimages
+Version:     4.0.2
+Synopsis:    Image processing library
+Authors:     Jun Furuse et al.
+License:     LGPL-2.1 with OCaml linking exception
+Plugins:     META (0.3), StdFiles (0.3), DevFiles (0.3)
+
+Library camlimages
+  Path:       src/
+  BuildTools: ocamlbuild
+  Pack:       true
+  Modules:    Bitmap,
+              Blend,
+              Bmp,
+              Config,
+              Cmyk32,
+              Colorhist,
+              Color,
+#Freetype,
+#Ftlow,
+#Fttext,
+              Genimage,
+              Geometry,
+              Gif,
+              Graphic_image,
+#Imagegdk,
+              Images,
+              Index16,
+              Index8,
+              Jis_table,
+              Jis_unicode,
+              Jpeg,
+              Mstring,
+              OBmp,
+              OColor,
+#OFreetype,
+              OGif,
+              OGraphic,
+              OImages,
+              OJpeg,
+              OPng,
+              OPpm,
+              OPs,
+              OTiff,
+#OXimage2,
+#OXimage,
+#OXpm,
+              OXvthumb,
+              Png,
+              Ppm,
+              Ps,
+              Reduce,
+              Region,
+              Rgb24,
+              Rgba32,
+              Tiff,
+              Tmpfile,
+              Units,
+#Ximage2,
+#Ximage,
+#Xpm,
+              Xvthumb
+  CSources: oversized.h,
+#ftinf.c,
+            gifread.c,
+            gifwrite.c,
+            jpegread.c,
+            jpegwrite.c,
+            pngread.c,
+            pngwrite.c,
+            tiffread.c,
+            tiffwrite.c
+#xpmread.c,
+#xpmwrite.c
+  CCLib:    -lpng -lgif -ljpeg -ltiff
+  
