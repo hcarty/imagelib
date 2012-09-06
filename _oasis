@@ -55,9 +55,10 @@ Library imagelib_graphics
   BuildDepends: graphics, imagelib
   Modules:      Graphic,
                 OGraphic
+  FindlibName:  graphics
   FindlibParent: imagelib
 
-Library imagelib_lablgtk
+Library imagelib_gtk
   Build:        false
   if flag(gtk)
     Build: true
@@ -67,6 +68,7 @@ Library imagelib_lablgtk
   Modules:      Imagegdk,
                 OXimage,
                 Ximage
+  FindlibName:  gtk
   FindlibParent: imagelib
 
 Library imagelib
