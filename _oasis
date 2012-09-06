@@ -5,6 +5,8 @@ Synopsis:    Image processing library, fork of camlimages
 Authors:     Jun Furuse, et al.
 License:     LGPL-2.1 with OCaml linking exception
 Plugins:     META (0.3), StdFiles (0.3), DevFiles (0.3)
+XStdFilesAUTHORS: false
+XStdFilesREADME: false
 
 Flag freetype
   Description: Enable Freetype support
