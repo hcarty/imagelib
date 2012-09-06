@@ -84,7 +84,7 @@ let load_ps file bbox_opt options =
       Printf.sprintf
         "%s -sDEVICE=ppmraw -r%fx%f -q -dSAFER -dNOPAUSE \
          -sOutputFile=%s %s -c showpage -c quit"
-        Config.path_gs resx resy tmpfile file
+        !Config.path_gs resx resy tmpfile file
     | Some (x1, y1, x2, y2) ->
       let ratiox = resx /. 72.0 in
       let ratioy = resy /. 72.0 in
@@ -93,7 +93,7 @@ let load_ps file bbox_opt options =
       Printf.sprintf
         "%s -sDEVICE=ppmraw -r%fx%f -g%dx%d -q -dSAFER -dNOPAUSE \
          -sOutputFile=%s -c %d %d translate -f %s -c showpage -c quit"
-        Config.path_gs resx resy width height tmpfile (-x1) (-y1) file in
+        !Config.path_gs resx resy width height tmpfile (-x1) (-y1) file in
   debug_endline command;
   if Sys.command command <> 0 then begin
     Tmpfile.remove_tmp_file tmpfile;

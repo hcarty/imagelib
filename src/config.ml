@@ -26,8 +26,8 @@ let lib_ps = true;;
 let lib_xpm = true;;
 
 (* External files *)
-let path_rgb_txt = "/dev/null";;
-let path_gs = "/dev/null";;
+let path_rgb_txt = ref "/etc/X11/rgb.txt";;
+let path_gs = ref "/usr/bin/gs";;
 
 (* They are written in ML, so always supported *)
 let lib_ppm = true;;
