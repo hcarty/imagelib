@@ -65,9 +65,7 @@ Library imagelib_lablgtk
   Pack:         true
   BuildDepends: lablgtk2, imagelib
   Modules:      Imagegdk,
-                OXimage2,
                 OXimage,
-                Ximage2,
                 Ximage
   FindlibParent: imagelib
 
