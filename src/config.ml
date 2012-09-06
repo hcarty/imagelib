@@ -35,4 +35,5 @@ let lib_bmp = true;;
 let lib_xvthumb = true;;
 
 (* Word size, used for the bitmap swapping memory management *)
-let word_size = 8;;
+let word_size = Sys.word_size / 8;;
+
