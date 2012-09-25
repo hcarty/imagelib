@@ -17,4 +17,4 @@ This library has a few changes relative to upstream:
 * Build with oasis for odb.ml-friendliness
 * Pack all modules under the Imagelib module to limit namespace pollution
 * A fix for monochrome TIFF loading from the upstream bug tracker
-
+* Examples have not been updated to reflect the new modules structure
