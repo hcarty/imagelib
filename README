@@ -16,8 +16,5 @@ creates swap files and escapes them to reduce the memory usage).
 This library has a few changes relative to upstream:
 * Build with oasis for odb.ml-friendliness
 * Pack all modules under the Imagelib module to limit namespace pollution
-* Features are all enabled without being able to disable any.  You can't
-  disable PNG, GIF, JPEG, TIFF, XPM, Graphics or lablgtk2 support.  This is
-  hopefully a short-term restriction
 * A fix for monochrome TIFF loading from the upstream bug tracker
 
