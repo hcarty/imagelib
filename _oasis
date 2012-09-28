@@ -46,34 +46,14 @@ Flag xpm
   Description: Enable XPM support
   Default$: flag(all) || false
 
-Library imagelib_graphics
-  Build:        false
-  if flag(graphics)
-    Build: true
-  Path:         src/
-  Pack:         true
-  BuildDepends: graphics, imagelib
-  Modules:      Graphic,
-                OGraphic
-  FindlibName:  graphics
-  FindlibParent: imagelib
-
-Library imagelib_gtk
-  Build:        false
-  if flag(gtk)
-    Build: true
-  Path:         src/
-  Pack:         true
-  BuildDepends: lablgtk2, imagelib
-  Modules:      Imagegdk,
-                OXimage,
-                Ximage
-  FindlibName:  gtk
-  FindlibParent: imagelib
+Flag examples
+  Description: Build the examples
+  Default: true
 
 Library imagelib
   Path:         src/
   Pack:         true
+  FindlibName:  imagelib
   Modules:      Bitmap,
                 Blend,
                 Bmp,
@@ -87,6 +67,7 @@ Library imagelib
                 Genimage,
                 Geometry,
                 Gif,
+                Image_intf,
                 Images,
                 Index16,
                 Index8,
@@ -143,4 +124,59 @@ Library imagelib
   if flag(xpm)
     CCOpt+:     -DIMAGELIB_XPM
     CCLib+:     -lXpm
+
+Library imagelib_graphics
+  Build:         false
+  if flag(graphics)
+    Build: true
+  Path:          src/graphics/
+  Pack:          true
+  BuildDepends:  graphics, imagelib
+  Modules:       Graphic,
+                 OGraphic
+  FindlibName:   graphics
+  FindlibParent: imagelib
+  XMETARequires: graphics, imagelib
+
+Library imagelib_gtk
+  Build:         false
+  if flag(gtk)
+    Build: true
+  Path:          src/gtk/
+  Pack:          true
+  BuildDepends:  lablgtk2, imagelib
+  Modules:       Imagegdk,
+                 OXimage,
+                 Ximage
+  FindlibName:   gtk
+  FindlibParent: imagelib
+  XMETARequires: lablgtk2, imagelib
+
+###
+# Tests
+###
+Executable test
+  Build:          false
+  if flag(graphics) && flag(examples)
+    Build: true
+  Path:           test/
+  MainIs:         test.ml
+  BuildDepends:   imagelib, imagelib.graphics
+  CompiledObject: best
+  BuildTools:     ocamlbuild
+  Install:        false
+
+##
+# Examples
+##
+Executable converter
+  Build:        false
+  if flag(graphics) && flag(examples)
+    Build: true
+  Path:           examples/converter/
+  MainIs:         converter.ml
+  BuildDepends:   imagelib.graphics
+  CompiledObject: best
+  BuildTools:     ocamlbuild
+  Install:        false
 

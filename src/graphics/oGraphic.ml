@@ -14,6 +14,7 @@
 
 (* $Id: oGraphic.ml,v 1.1 2007/01/18 10:29:57 rousse Exp $ *)
 
+open Imagelib
 open Images;;
 open OImages;;
 

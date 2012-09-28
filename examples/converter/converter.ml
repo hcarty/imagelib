@@ -12,6 +12,7 @@
 
 (* $Id: converter.ml,v 1.11 2004/09/21 18:15:41 weis Exp $ *)
 
+open Imagelib
 open Images;;
 open OImages;;
 

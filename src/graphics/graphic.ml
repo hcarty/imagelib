@@ -14,6 +14,8 @@
 
 (* $Id: graphic_image.ml,v 1.2 2009/02/08 15:01:56 weis Exp $ *)
 
+open Imagelib
+
 open Images;;
 
 open Graphics;;

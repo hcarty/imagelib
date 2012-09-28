@@ -12,26 +12,25 @@
 (*                                                                     *)
 (***********************************************************************)
 
-(* $Id: test.ml,v 1.32.2.1 2010/05/13 13:14:47 furuse Exp $ *)
-
-open Images;;
-open Format;;
+open Imagelib
+open Images
+open Format
 
 let capabilities () =
   let supported b = if b then "supported" else "not supported" in
   printf "*******************************************************@.";
-  printf "Camlimages library capabilities currently available@.";
-  printf "bmp\t: %s@." (supported Camlimages.lib_bmp);
-  printf "ppm\t: %s@." (supported Camlimages.lib_ppm);
-  printf "gif\t: %s@." (supported Camlimages.lib_gif);
-  printf "jpeg\t: %s@." (supported Camlimages.lib_jpeg);
-  printf "tiff\t: %s@." (supported Camlimages.lib_tiff);
-  printf "png\t: %s@." (supported Camlimages.lib_png);
-  printf "xpm\t: %s@." (supported Camlimages.lib_xpm);
-  printf "xv thumbnails\t: %s@." (supported Camlimages.lib_xvthumb);
-  printf "postscript\t: %s@." (supported Camlimages.lib_ps);
-  printf "freetype\t: %s@." (supported Camlimages.lib_freetype);
-  printf "*******************************************************@.";;
+  printf "Imagelib library capabilities currently available@.";
+  printf "bmp\t: %s@." (supported Config.lib_bmp);
+  printf "ppm\t: %s@." (supported Config.lib_ppm);
+  printf "gif\t: %s@." (supported Config.lib_gif);
+  printf "jpeg\t: %s@." (supported Config.lib_jpeg);
+  printf "tiff\t: %s@." (supported Config.lib_tiff);
+  printf "png\t: %s@." (supported Config.lib_png);
+  printf "xpm\t: %s@." (supported Config.lib_xpm);
+  printf "xv thumbnails\t: %s@." (supported Config.lib_xvthumb);
+  printf "postscript\t: %s@." (supported Config.lib_ps);
+  printf "freetype\t: %s@." (supported Config.lib_freetype);
+  printf "*******************************************************@."
 
 let show_image img x y =
   let img = 
@@ -39,13 +38,13 @@ let show_image img x y =
     | Rgba32 img -> Rgb24 (Rgb24.of_rgba32 img)
     | _ -> img
   in
-  let gr_img = Graphics.make_image (Graphic_image.array_of_image img) in
-  Graphics.draw_image gr_img x y;;
+  let gr_img = Graphics.make_image (Graphic.array_of_image img) in
+  Graphics.draw_image gr_img x y
 
-module FtDraw = Fttext.Make(Rgb24);;
+module FtDraw = Fttext.Make(Rgb24)
 
 let draw_string =
-  if Camlimages.lib_freetype then begin
+  if Config.lib_freetype then begin
     (* Freetype library initialization *)
     let library = Freetype.init () in
     let src_dir = (try Sys.getenv "srcdir" with Not_found -> ".") in
@@ -76,7 +75,7 @@ let go_on () =
  if s = 's' then begin
    prerr_endline "Saving screenshot";
    let gr_img =
-     Graphic_image.get_image 0 0 (Graphics.size_x ()) (Graphics.size_y ()) in
+     Graphic.get_image 0 0 (Graphics.size_x ()) (Graphics.size_y ()) in
    Images.save "screen.bmp" (Some Bmp) [] (Rgb24 gr_img);
    prerr_endline "done"
  end;
