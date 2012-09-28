@@ -1,6 +1,6 @@
 OASISFormat: 0.3
 Name:        imagelib
-Version:     0.0.1
+Version:     0.0.2
 Synopsis:    Image processing library, fork of camlimages
 Authors:     Jun Furuse, et al.
 License:     LGPL-2.1 with OCaml linking exception
