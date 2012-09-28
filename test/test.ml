@@ -47,7 +47,7 @@ let draw_string =
   if Config.lib_freetype then begin
     (* Freetype library initialization *)
     let library = Freetype.init () in
-    let src_dir = (try Sys.getenv "srcdir" with Not_found -> ".") in
+    let src_dir = (try Sys.getenv "srcdir" with Not_found -> "test") in
     let src_file = Filename.concat src_dir "micap.ttf" in
     let face, _face_info = Freetype.new_face library src_file 0 in
     Freetype.set_char_size face 18.0 18.0 72 72;
@@ -94,7 +94,7 @@ let images =
   if !images <> []
   then List.rev !images
   else 
-    let src_dir = (try Sys.getenv "srcdir" with Not_found -> ".") in
+    let src_dir = (try Sys.getenv "srcdir" with Not_found -> "test") in
     let images_src_dir = Filename.concat src_dir "images" in
     List.map (fun x -> Filename.concat images_src_dir x) images_default;;
 
