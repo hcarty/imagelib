@@ -1,0 +1,9 @@
+# OASIS_START
+# DO NOT EDIT (digest: e2277e63035fb13861b4cf5b3c70ada6)
+ft_stubs.o
+gif_stubs.o
+jpeg_stubs.o
+png_stubs.o
+tiff_stubs.o
+xpm_stubs.o
+# OASIS_STOP

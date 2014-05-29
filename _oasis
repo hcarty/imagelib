@@ -1,10 +1,10 @@
-OASISFormat: 0.3
+OASISFormat: 0.4
 Name:        imagelib
-Version:     0.0.2
+Version:     0.0.3
 Synopsis:    Image processing library, fork of camlimages
 Authors:     Jun Furuse, et al.
 License:     LGPL-2.1 with OCaml linking exception
-Plugins:     META (0.3), StdFiles (0.3), DevFiles (0.3)
+Plugins:     META (0.4), StdFiles (0.4), DevFiles (0.4)
 XStdFilesAUTHORS: false
 XStdFilesREADME: false
 BuildTools:   ocamlbuild

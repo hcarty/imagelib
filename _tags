@@ -1,0 +1,103 @@
+# OASIS_START
+# DO NOT EDIT (digest: 0fe22d63245aea8d20abf4c5a25c46b9)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library imagelib
+"src/imagelib.cmxs": use_imagelib
+"src/bitmap.cmx": for-pack(Imagelib)
+"src/blend.cmx": for-pack(Imagelib)
+"src/bmp.cmx": for-pack(Imagelib)
+"src/config.cmx": for-pack(Imagelib)
+"src/cmyk32.cmx": for-pack(Imagelib)
+"src/colorhist.cmx": for-pack(Imagelib)
+"src/color.cmx": for-pack(Imagelib)
+"src/freetype.cmx": for-pack(Imagelib)
+"src/ftlow.cmx": for-pack(Imagelib)
+"src/fttext.cmx": for-pack(Imagelib)
+"src/genimage.cmx": for-pack(Imagelib)
+"src/geometry.cmx": for-pack(Imagelib)
+"src/gif.cmx": for-pack(Imagelib)
+"src/image_intf.cmx": for-pack(Imagelib)
+"src/images.cmx": for-pack(Imagelib)
+"src/index16.cmx": for-pack(Imagelib)
+"src/index8.cmx": for-pack(Imagelib)
+"src/jis_table.cmx": for-pack(Imagelib)
+"src/jis_unicode.cmx": for-pack(Imagelib)
+"src/jpeg.cmx": for-pack(Imagelib)
+"src/mstring.cmx": for-pack(Imagelib)
+"src/oBmp.cmx": for-pack(Imagelib)
+"src/oColor.cmx": for-pack(Imagelib)
+"src/oFreetype.cmx": for-pack(Imagelib)
+"src/oGif.cmx": for-pack(Imagelib)
+"src/oImages.cmx": for-pack(Imagelib)
+"src/oJpeg.cmx": for-pack(Imagelib)
+"src/oPng.cmx": for-pack(Imagelib)
+"src/oPpm.cmx": for-pack(Imagelib)
+"src/oPs.cmx": for-pack(Imagelib)
+"src/oTiff.cmx": for-pack(Imagelib)
+"src/oXpm.cmx": for-pack(Imagelib)
+"src/oXvthumb.cmx": for-pack(Imagelib)
+"src/png.cmx": for-pack(Imagelib)
+"src/ppm.cmx": for-pack(Imagelib)
+"src/ps.cmx": for-pack(Imagelib)
+"src/reduce.cmx": for-pack(Imagelib)
+"src/region.cmx": for-pack(Imagelib)
+"src/rgb24.cmx": for-pack(Imagelib)
+"src/rgba32.cmx": for-pack(Imagelib)
+"src/tiff.cmx": for-pack(Imagelib)
+"src/tmpfile.cmx": for-pack(Imagelib)
+"src/units.cmx": for-pack(Imagelib)
+"src/xpm.cmx": for-pack(Imagelib)
+"src/xvthumb.cmx": for-pack(Imagelib)
+<src/*.ml{,i}>: oasis_library_imagelib_ccopt
+"src/ft_stubs.c": oasis_library_imagelib_ccopt
+"src/gif_stubs.c": oasis_library_imagelib_ccopt
+"src/jpeg_stubs.c": oasis_library_imagelib_ccopt
+"src/png_stubs.c": oasis_library_imagelib_ccopt
+"src/tiff_stubs.c": oasis_library_imagelib_ccopt
+"src/xpm_stubs.c": oasis_library_imagelib_ccopt
+<src/imagelib.{cma,cmxa}>: oasis_library_imagelib_cclib
+"src/libimagelib_stubs.lib": oasis_library_imagelib_cclib
+"src/dllimagelib_stubs.dll": oasis_library_imagelib_cclib
+"src/libimagelib_stubs.a": oasis_library_imagelib_cclib
+"src/dllimagelib_stubs.so": oasis_library_imagelib_cclib
+<src/imagelib.{cma,cmxa}>: use_libimagelib_stubs
+# Library imagelib_graphics
+"src/graphics/imagelib_graphics.cmxs": use_imagelib_graphics
+"src/graphics/graphic.cmx": for-pack(Imagelib_graphics)
+"src/graphics/oGraphic.cmx": for-pack(Imagelib_graphics)
+<src/graphics/*.ml{,i}>: pkg_graphics
+<src/graphics/*.ml{,i}>: use_imagelib
+# Library imagelib_gtk
+"src/gtk/imagelib_gtk.cmxs": use_imagelib_gtk
+"src/gtk/imagegdk.cmx": for-pack(Imagelib_gtk)
+"src/gtk/oXimage.cmx": for-pack(Imagelib_gtk)
+"src/gtk/ximage.cmx": for-pack(Imagelib_gtk)
+<src/gtk/*.ml{,i}>: pkg_lablgtk2
+<src/gtk/*.ml{,i}>: use_imagelib
+# Executable test
+<test/test.{native,byte}>: pkg_graphics
+<test/test.{native,byte}>: use_imagelib
+<test/test.{native,byte}>: use_imagelib_graphics
+<test/*.ml{,i}>: pkg_graphics
+<test/*.ml{,i}>: use_imagelib
+<test/*.ml{,i}>: use_imagelib_graphics
+# Executable converter
+<examples/converter/converter.{native,byte}>: pkg_graphics
+<examples/converter/converter.{native,byte}>: use_imagelib
+<examples/converter/converter.{native,byte}>: use_imagelib_graphics
+<examples/converter/*.ml{,i}>: pkg_graphics
+<examples/converter/*.ml{,i}>: use_imagelib
+<examples/converter/*.ml{,i}>: use_imagelib_graphics
+# OASIS_STOP
