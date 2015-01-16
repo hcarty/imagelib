@@ -1,8 +1,9 @@
 # OASIS_START
-# DO NOT EDIT (digest: 0fe22d63245aea8d20abf4c5a25c46b9)
+# DO NOT EDIT (digest: dd5086ee587b41595c61300ee1776cb9)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
+true: annot, bin_annot
 <**/.svn>: -traverse
 <**/.svn>: not_hygienic
 ".bzr": -traverse
@@ -60,7 +61,7 @@
 "src/units.cmx": for-pack(Imagelib)
 "src/xpm.cmx": for-pack(Imagelib)
 "src/xvthumb.cmx": for-pack(Imagelib)
-<src/*.ml{,i}>: oasis_library_imagelib_ccopt
+<src/*.ml{,i,y}>: oasis_library_imagelib_ccopt
 "src/ft_stubs.c": oasis_library_imagelib_ccopt
 "src/gif_stubs.c": oasis_library_imagelib_ccopt
 "src/jpeg_stubs.c": oasis_library_imagelib_ccopt
@@ -77,27 +78,27 @@
 "src/graphics/imagelib_graphics.cmxs": use_imagelib_graphics
 "src/graphics/graphic.cmx": for-pack(Imagelib_graphics)
 "src/graphics/oGraphic.cmx": for-pack(Imagelib_graphics)
-<src/graphics/*.ml{,i}>: pkg_graphics
-<src/graphics/*.ml{,i}>: use_imagelib
+<src/graphics/*.ml{,i,y}>: pkg_graphics
+<src/graphics/*.ml{,i,y}>: use_imagelib
 # Library imagelib_gtk
 "src/gtk/imagelib_gtk.cmxs": use_imagelib_gtk
 "src/gtk/imagegdk.cmx": for-pack(Imagelib_gtk)
 "src/gtk/oXimage.cmx": for-pack(Imagelib_gtk)
 "src/gtk/ximage.cmx": for-pack(Imagelib_gtk)
-<src/gtk/*.ml{,i}>: pkg_lablgtk2
-<src/gtk/*.ml{,i}>: use_imagelib
+<src/gtk/*.ml{,i,y}>: pkg_lablgtk2
+<src/gtk/*.ml{,i,y}>: use_imagelib
 # Executable test
 <test/test.{native,byte}>: pkg_graphics
 <test/test.{native,byte}>: use_imagelib
 <test/test.{native,byte}>: use_imagelib_graphics
-<test/*.ml{,i}>: pkg_graphics
-<test/*.ml{,i}>: use_imagelib
-<test/*.ml{,i}>: use_imagelib_graphics
+<test/*.ml{,i,y}>: pkg_graphics
+<test/*.ml{,i,y}>: use_imagelib
+<test/*.ml{,i,y}>: use_imagelib_graphics
 # Executable converter
 <examples/converter/converter.{native,byte}>: pkg_graphics
 <examples/converter/converter.{native,byte}>: use_imagelib
 <examples/converter/converter.{native,byte}>: use_imagelib_graphics
-<examples/converter/*.ml{,i}>: pkg_graphics
-<examples/converter/*.ml{,i}>: use_imagelib
-<examples/converter/*.ml{,i}>: use_imagelib_graphics
+<examples/converter/*.ml{,i,y}>: pkg_graphics
+<examples/converter/*.ml{,i,y}>: use_imagelib
+<examples/converter/*.ml{,i,y}>: use_imagelib_graphics
 # OASIS_STOP

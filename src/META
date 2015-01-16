@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: 4a6844b92c3f5138f5c48b4ce3f19aad)
-version = "0.0.2"
+# DO NOT EDIT (digest: 857bf41b2a4c16d379a292685c5f6013)
+version = "0.0.3"
 description = "Image processing library, fork of camlimages"
 archive(byte) = "imagelib.cma"
 archive(byte, plugin) = "imagelib.cma"
@@ -8,7 +8,7 @@ archive(native) = "imagelib.cmxa"
 archive(native, plugin) = "imagelib.cmxs"
 exists_if = "imagelib.cma"
 package "gtk" (
- version = "0.0.2"
+ version = "0.0.3"
  description = "Image processing library, fork of camlimages"
  requires = "lablgtk2 imagelib"
  archive(byte) = "imagelib_gtk.cma"
@@ -19,7 +19,7 @@ package "gtk" (
 )
 
 package "graphics" (
- version = "0.0.2"
+ version = "0.0.3"
  description = "Image processing library, fork of camlimages"
  requires = "graphics imagelib"
  archive(byte) = "imagelib_graphics.cma"
